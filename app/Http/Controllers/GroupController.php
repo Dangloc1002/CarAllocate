@@ -178,8 +178,8 @@ class GroupController extends Controller
 
             $group1 = $requests;
             $group2 = null;
-            if ($carDriver) {
-                $totalRequests = $requests->count();
+            $totalRequests = $requests->count();
+            if ($carDriver &&  $totalRequests > $carDriver->seat_limit) {
                 $half = intdiv($totalRequests, 2); // Chia nguyên cho 2
                 if ($totalRequests % 2 !== 0) {
                     $half += 1; // Nếu lẻ, nhóm 1 sẽ nhiều hơn nhóm 2 đúng 1 người
