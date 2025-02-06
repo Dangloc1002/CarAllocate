@@ -57,7 +57,7 @@
                         <td>{{$user->email}}</td>                    
                         <td>{{$user->phone}}</td>
                         <td>{{$user->priority }}</td>
-                        <td>{{$hasLunch[$user->has_lunch]}}</td>
+                        <td></td>
                         <td>{{$user->role}}</td>
                       </tr>
                     @endforeach

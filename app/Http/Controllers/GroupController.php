@@ -15,7 +15,7 @@ class GroupController extends Controller
 {
     public function index()
     {
-        $listGroup = \App\Models\Group::where('status', 0)->get();
+        $listGroup = \App\Models\Group::where('status', 0)->orderBy('start', 'asc')->get();
 
         return view('groups.index', compact('listGroup'));
     }

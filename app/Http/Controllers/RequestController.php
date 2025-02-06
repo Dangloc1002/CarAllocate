@@ -46,11 +46,17 @@ class RequestController extends Controller
 
         $locationFrom = \App\Models\Location::where('id', $request->get('location_from_id'))->first();
         $data['location_from_name'] = $locationFrom->name;
+        $data['location_from_id'] = $locationFrom->id;
 
         $locationTo = \App\Models\Location::where('id', $request->get('location_to_id'))->first();
         $data['location_to_name'] = $locationTo->name;
-
-        $data['status'] = $this->status['Waitting'];
+        $data['location_to_id'] = $locationTo->id;
+        $data['province_from'] = $locationTo->province;
+        $data['province_to'] = $locationTo->province;
+        $data['distance'] = $locationTo->distance; 
+        $data['priority_user'] = $passenger->priority;
+        $data['role_user'] = $passenger->priority;
+        $data['status'] = 0;
 
         \App\Models\Request::create($data);
         return redirect()->route('requests.index')->with('success', 'Request created successfully.');
